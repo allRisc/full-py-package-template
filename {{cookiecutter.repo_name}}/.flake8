@@ -1,0 +1,3 @@
+[flake8]
+max-line-length = {{cookiecutter._line_length}}
+indent-size = 2

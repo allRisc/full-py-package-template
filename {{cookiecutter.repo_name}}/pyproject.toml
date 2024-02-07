@@ -1,0 +1,39 @@
+{% include "header.j2" %}
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{cookiecutter.package_name}}"
+dynamic = ["version"]
+description = "{{cookiecutter.package_description}}"
+readme = "README.md"
+authors = [{name = "{{cookiecutter.author}}", email = "{{cookiecutter.email}}"}]
+license = {file = "LICENSE"}
+classifiers = [
+    #"Development Status :: 1 - Planning",
+    #"Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
+    #"Development Status :: 4 - Beta",
+    #"Development Status :: 5 - Production/Stable",
+    #"Development Status :: 6 - Mature",
+    #"Development Status :: 7 - Inactive",
+    {%- if cookiecutter.license == "LGPL-2.1"%}
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    {%- elif cookiecutter.license == "GPL-3.0" %}
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    {%- endif %}
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = []
+requires-python = ">=3"
+
+[project.urls]
+Homepage = "https://github.com/{{cookiecutter.repo_org}}/{{cookiecutter.repo_name}}"
+Documentation = "https://{{cookiecutter.package_name.replace('_', '-')}}.readthedocs.io/en/latest/index.html"
+
+[project.optional-dependencies]
+dev = ["flake8", "mypy", "tox", "pytest", "sphinx", "sphinx-rtd-theme"]
+docs = ['sphinx', 'sphinx-rtd-theme']

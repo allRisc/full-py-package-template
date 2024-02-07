@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get the current version
+export RELEASE=$(python -c "import {{cookiecutter.package_name}}; print({{cookiecutter.package_name}}.__version__)")
+
+# Ensure committing everything (optional)
+git add -A
+
+# Create tags
+git commit --allow-empty -m "Release $RELEASE"
+git tag -a $RELEASE -m "Version $RELEASE"
+
+# Push
+git push --follow-tags

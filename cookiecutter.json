@@ -1,0 +1,15 @@
+{
+  "project_name": "",
+  "author": "",
+  "email": "",
+  "repo_org": "{{cookiecutter.author.lower().replace(' ', '_')}}",
+  "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "package_name": "{{ cookiecutter.repo_name.lower().replace('-', '_') }}",
+  "package_description": "The {{ cookiecutter.project_name }} package",
+  "license": ["GPL-3.0", "LGPL-2.1"],
+
+  "_line_length": 100,
+  "_copy_without_render": [
+    "docs/source/_templates"
+  ]
+}
